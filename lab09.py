@@ -11,6 +11,7 @@
 def two_sum(nums, target):
     # Outline (write your plan here first):
     #   ...
+
     ## Check pairs of numbers in the list.
     ## If two numbers add up to the target, return their index positions.
 
@@ -27,9 +28,28 @@ def max_profit(prices):
     # Outline:
     #   ...
 
+    ## Find the lowest price seen so far.
+    ## For each later price, calculate the profit sold there.
+    ## Keep track of the largest profit and return 0 if no profit is possible.
+
     # TODO: `prices[i]` is a stock price on day i. Return the most profit obtainable by
     #   buying on one day and selling on a LATER day. If no profit is possible, return 0.
-    pass
+    if prices == []:
+        return 0
+    min_price = prices[0] ## price checks
+    max_profit_value = 0
+
+    for price in prices[1:]:
+        profit = price - min_price
+        
+        if profit > max_profit_value:
+            max_profit_value = profit
+
+        if price < min_price:
+            min_price = price
+
+    return max_profit_value
+
 
 
 def max_subarray(nums):
