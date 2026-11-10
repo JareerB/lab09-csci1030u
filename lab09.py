@@ -11,14 +11,22 @@
 def two_sum(nums, target):
     # Outline (write your plan here first):
     #   ...
+    ## Check pairs of numbers in the list.
+    ## If two numbers add up to the target, return their index positions.
+
     # TODO: return the indices [i, j] (i < j) of the two numbers in `nums` that add up
     #   to `target`. Assume there is exactly one answer.
-    pass
+    for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+    
 
 
 def max_profit(prices):
     # Outline:
     #   ...
+
     # TODO: `prices[i]` is a stock price on day i. Return the most profit obtainable by
     #   buying on one day and selling on a LATER day. If no profit is possible, return 0.
     pass
