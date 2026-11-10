@@ -55,9 +55,23 @@ def max_profit(prices):
 def max_subarray(nums):
     # Outline:
     #   ...
+
+    ## Start with the first number as the current sum and best sum.
+    ## Go through the list and decide whether to continue the current block or start fresh.
+    ## Keep track of the largest sum found.
+
     # TODO: return the largest sum of any contiguous (in-a-row) block of numbers in
     #   `nums`. The list has at least one number.
-    pass
+    current_sum = nums[0]
+    best_sum = nums[0]
+
+    for num in nums[1:]:
+        current_sum = max(num, current_sum + num)
+
+        if current_sum > best_sum:
+            best_sum = current_sum
+
+    return best_sum
 
 
 def is_balanced(s):   # Part 4 - stretch (optional)
